@@ -11,7 +11,7 @@ import struct
 import matplotlib.pyplot as plt
 import numpy as np
 
-import pySPM
+import pyspm
 
 Elements = {
     "H": {1: (1.00782503223, 0.999885), 2: (2.01410177812, 0.000115)},
@@ -105,7 +105,7 @@ class BIF6:
             return SUM
         if SUM is None:
             return None
-        return pySPM.SPM_image(np.flipud(SUM))
+        return pyspm.SPM_image(np.flipud(SUM))
 
     def getImgElt(self, elt):
         r = {}

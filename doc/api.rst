@@ -1,9 +1,9 @@
-The pySPM API reference
+The pyspm API reference
 =======================
 
 The SPM_image module
 --------------------
-.. automodule:: pySPM.SPM
+.. automodule:: pyspm.SPM
     :members:
 
 AFM modules
@@ -11,30 +11,30 @@ AFM modules
 
 Bruker
 ^^^^^^
-.. automodule:: pySPM.bruker
+.. automodule:: pyspm.bruker
     :members:
 
 Nanoscan
 ^^^^^^^^
-.. automodule:: pySPM.nanoscan
+.. automodule:: pyspm.nanoscan
     :members:
 
 SXM
 ^^^
-.. automodule:: pySPM.SXM
+.. automodule:: pyspm.SXM
     :members:
 
 ToF-SIMS modules
 ----------------
-.. automodule:: pySPM.ITA
+.. automodule:: pyspm.ITA
     :members:
 .. autoclass:: ITA
 .. autoclass:: ITA_collection
-.. automodule:: pySPM.ITM
+.. automodule:: pyspm.ITM
     :members:
 
 The "utils" module
 ------------------
 
-.. automodule:: pySPM.utils
+.. automodule:: pyspm.utils
     :members:

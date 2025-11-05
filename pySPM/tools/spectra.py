@@ -12,8 +12,8 @@ from PyQt5.QtWidgets import (
     QTableWidgetItem,
 )
 
-import pySPM
-from pySPM.tools.spectraviewer import Ui_SpectraViewer
+import pyspm
+from pyspm.tools.spectraviewer import Ui_SpectraViewer
 
 DPI = 100.0
 
@@ -97,8 +97,8 @@ class SpectraViewer(QMainWindow):
         r = self.ax.get_xlim()
         E = []
         for nm in range(int(np.round(r[0], 0)), int(np.round(r[1], 0)) + 1):
-            E += pySPM.utils.get_peaklist(nm, self.ita.polarity == "Negative")
-        m0s = [pySPM.utils.get_mass(x) for x in E]
+            E += pyspm.utils.get_peaklist(nm, self.ita.polarity == "Negative")
+        m0s = [pyspm.utils.get_mass(x) for x in E]
         P = list(zip(m0s, E, strict=False))
         P.sort(key=lambda x: x[0])
         y = self.ax.get_ylim()[1]
@@ -145,8 +145,8 @@ class SpectraViewer(QMainWindow):
             self.sat_level.set_ydata(SatLevel)
 
         max = 0
-        left = int(pySPM.utils.mass2time(r[0], sf=self.sf, k0=self.k0) / 2)
-        right = int(pySPM.utils.mass2time(r[1], sf=self.sf, k0=self.k0) / 2) + 1
+        left = int(pyspm.utils.mass2time(r[0], sf=self.sf, k0=self.k0) / 2)
+        right = int(pyspm.utils.mass2time(r[1], sf=self.sf, k0=self.k0) / 2) + 1
         if left < 0:
             left = 0
         if right >= len(self.S):
@@ -161,7 +161,7 @@ class SpectraViewer(QMainWindow):
                 self.plot_labels()
         else:
             self.ui.show_mass.setEnabled(False)
-        m0 = pySPM.utils.time2mass(left + right, self.sf, self.k0)
+        m0 = pyspm.utils.time2mass(left + right, self.sf, self.k0)
         dm = (
             2
             * np.sqrt(m0)
@@ -182,7 +182,7 @@ class SpectraViewer(QMainWindow):
         self.refresh()
 
     def open(self, t_filename=None):
-        settings = QSettings(QSettings.IniFormat, QSettings.UserScope, "pySPM", "pySPM")
+        settings = QSettings(QSettings.IniFormat, QSettings.UserScope, "pyspm", "pyspm")
         if t_filename is None:
             home = QDir.cleanPath(os.getenv("HOMEPATH"))
             path = settings.value("lastPath", home)
@@ -197,27 +197,27 @@ class SpectraViewer(QMainWindow):
             return
 
         settings.setValue("lastPath", check_file.path())
-        self.ita = pySPM.ITA(self.filename, readonly=False)
+        self.ita = pyspm.ITA(self.filename, readonly=False)
         self.t, self.S = self.ita.getSpectrum(time=True)
         self.sf, self.k0 = self.ita.get_mass_cal()
-        self.mass = pySPM.utils.time2mass(self.t, self.sf, self.k0)
+        self.mass = pyspm.utils.time2mass(self.t, self.sf, self.k0)
         self.spec = self.ax.plot(self.mass, self.S)[0]
         SatLevel = (
             self.ita.size["pixels"]["x"] * self.ita.size["pixels"]["y"] * self.ita.Nscan
         )
         self.sat_level = self.ax.axhline(SatLevel, color="r")
-        if "pySPM" in self.ita.root.goto("MassScale"):
+        if "pyspm" in self.ita.root.goto("MassScale"):
             self.MassCal = []
-            N = self.ita.root.goto("MassScale/pySPM/N").get_ulong()
+            N = self.ita.root.goto("MassScale/pyspm/N").get_ulong()
             for i in range(N):
                 elt = self.ita.root.goto(
-                    "MassScale/pySPM/" + str(i) + "/elt"
+                    "MassScale/pyspm/" + str(i) + "/elt"
                 ).value.decode("utf8")
                 mass = self.ita.root.goto(
-                    "MassScale/pySPM/" + str(i) + "/mass"
+                    "MassScale/pyspm/" + str(i) + "/mass"
                 ).get_double()
                 time = self.ita.root.goto(
-                    "MassScale/pySPM/" + str(i) + "/time"
+                    "MassScale/pyspm/" + str(i) + "/time"
                 ).get_double()
                 self.MassCal.append({"elt": elt, "mass": mass, "time": time})
         else:
@@ -237,10 +237,10 @@ class SpectraViewer(QMainWindow):
         ):
             pol = "-" if self.ita.polarity == "Negative" else "+"
             formula = formula + pol
-        return pySPM.utils.get_mass(formula)
+        return pyspm.utils.get_mass(formula)
 
     def plotSpectra(self):
-        self.mass = pySPM.utils.time2mass(self.t, self.sf, self.k0)
+        self.mass = pyspm.utils.time2mass(self.t, self.sf, self.k0)
         self.spec.set_xdata(self.mass)
         self.refresh()
 
@@ -248,7 +248,7 @@ class SpectraViewer(QMainWindow):
         if event.button == 3:
             x = event.xdata
 
-            i = pySPM.utils.closest_arg(self.mass, x)
+            i = pyspm.utils.closest_arg(self.mass, x)
             last = i - 1
             while i != last:
                 last = i
@@ -276,8 +276,8 @@ class SpectraViewer(QMainWindow):
             r = self.ax.get_xlim()
             frags = []
             for nm in range(int(np.round(r[0], 0)), int(np.round(r[1], 0)) + 1):
-                frags += pySPM.utils.get_peaklist(nm, self.ita.polarity == "Negative")
-            masses = np.array([pySPM.utils.get_mass(x) for x in frags])
+                frags += pyspm.utils.get_peaklist(nm, self.ita.polarity == "Negative")
+            masses = np.array([pyspm.utils.get_mass(x) for x in frags])
             dm = masses - x
             i = np.argmin(np.abs(dm))
             self.MassCal[-1]["mass"] = masses[i]
@@ -293,16 +293,16 @@ class SpectraViewer(QMainWindow):
             for key in mcp:
                 if key in ["elt"]:
                     data = mcp[key].encode("utf8") + b"\x00" * (256 - len(mcp[key]))
-                    root.edit_block("pySPM/" + str(i), key, data)
+                    root.edit_block("pyspm/" + str(i), key, data)
                 else:
-                    root.edit_block("pySPM/" + str(i), key, struct.pack("<d", mcp[key]))
-        root.edit_block("pySPM", "N", struct.pack("<I", len(self.MassCal)))
+                    root.edit_block("pyspm/" + str(i), key, struct.pack("<d", mcp[key]))
+        root.edit_block("pyspm", "N", struct.pack("<I", len(self.MassCal)))
 
     def DoMassCal(self):
         ts = [x["time"] for x in self.MassCal]
         ms = [x["mass"] for x in self.MassCal]
         if len(ts) > 1:
-            self.sf, self.k0, self.dsf, self.dk0 = pySPM.utils.fitSpectrum(
+            self.sf, self.k0, self.dsf, self.dk0 = pyspm.utils.fitSpectrum(
                 ts, ms, error=True
             )
         else:
@@ -317,7 +317,7 @@ class SpectraViewer(QMainWindow):
         self.ui.tableMassCal.setRowCount(len(self.MassCal))
         for i in range(len(self.MassCal)):
             self.ui.tableMassCal.setItem(i, 0, QTableWidgetItem(self.MassCal[i]["elt"]))
-            m = pySPM.utils.time2mass(self.MassCal[i]["time"], self.sf, self.k0)
+            m = pyspm.utils.time2mass(self.MassCal[i]["time"], self.sf, self.k0)
             self.ui.tableMassCal.setItem(
                 i, 1, QTableWidgetItem("{:.3f}".format(self.MassCal[i]["mass"]))
             )
@@ -326,7 +326,7 @@ class SpectraViewer(QMainWindow):
             )
             delta = "{:.6f}".format(m - self.MassCal[i]["mass"])
             self.ui.tableMassCal.setItem(i, 3, QTableWidgetItem(delta))
-        self.mass = pySPM.utils.time2mass(self.t, self.sf, self.k0)
+        self.mass = pyspm.utils.time2mass(self.t, self.sf, self.k0)
         self.save_mass_cal()
         self.plotSpectra()
 

@@ -14,11 +14,11 @@
 import os
 import sys
 
-sys.path.insert(0, os.path.abspath("../pySPM"))
+sys.path.insert(0, os.path.abspath("../pyspm"))
 
 # -- Project information -----------------------------------------------------
 
-project = "pySPM"
+project = "pyspm"
 copyright = "2018, Olivier Scholder"
 author = "Olivier Scholder"
 
@@ -100,7 +100,7 @@ html_static_path = ["_static"]
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = "pySPMdoc"
+htmlhelp_basename = "pyspmdoc"
 
 # -- Options for LaTeX output ------------------------------------------------
 
@@ -123,14 +123,14 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, "pySPM.tex", "pySPM Documentation", "Olivier Scholder", "manual"),
+    (master_doc, "pyspm.tex", "pyspm Documentation", "Olivier Scholder", "manual"),
 ]
 
 # -- Options for manual page output ------------------------------------------
 
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
-man_pages = [(master_doc, "pyspm", "pySPM Documentation", [author], 1)]
+man_pages = [(master_doc, "pyspm", "pyspm Documentation", [author], 1)]
 
 # -- Options for Texinfo output ----------------------------------------------
 
@@ -140,10 +140,10 @@ man_pages = [(master_doc, "pyspm", "pySPM Documentation", [author], 1)]
 texinfo_documents = [
     (
         master_doc,
-        "pySPM",
-        "pySPM Documentation",
+        "pyspm",
+        "pyspm Documentation",
         author,
-        "pySPM",
+        "pyspm",
         "One line description of project.",
         "Miscellaneous",
     ),

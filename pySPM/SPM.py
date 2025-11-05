@@ -56,9 +56,9 @@ class SPM_image:
         channel : string
             The name of the channel. What does the image represents?
         corr : string or None
-            'slope' : correct the SPM image for its slope (see pySPM.SPM.SPM_image.correct_slope)
-            'lines' : correct the SPM image for its lines (see pySPM.SPM.SPM_image.correct_lines)
-            'plane' : correct the SPM image by plane fitting (see pySPM.SPM.SPM_image.correct_plane)
+            'slope' : correct the SPM image for its slope (see pyspm.SPM.SPM_image.correct_slope)
+            'lines' : correct the SPM image for its lines (see pyspm.SPM.SPM_image.correct_lines)
+            'plane' : correct the SPM image by plane fitting (see pyspm.SPM.SPM_image.correct_plane)
         real : None or dictionary
             Information about the real size of the image {'x':width,'y':height,'unit':unit_name}
         zscale : string
@@ -186,12 +186,12 @@ class SPM_image:
 
         Example
         -------
-        >>> img = pySPM.SPM_image()
+        >>> img = pyspm.SPM_image()
         >>> img.show()
         >>> img.add_scale(50e-6, pixels=False)
         Add a scale of 50 μm on an image displayed with real units
 
-        >>> img = pySPM.SPM_image()
+        >>> img = pyspm.SPM_image()
         >>> img.show(pixels=True)
         >>> img.add_scale(50e-6)
         Add a scale of 50 μm on an image displayed in pixels
@@ -295,14 +295,14 @@ class SPM_image:
         Example
         -------
         Exampel if the data are plotted in pixels:
-        >>> topo = pySPM.SPM_image(...)
+        >>> topo = pyspm.SPM_image(...)
         >>> fig, ax = plt.subplots(1, 2, figsize=(10, 5))
         >>> topoC = topo.offset([[150, 0, 220, 255]], inline=False, axPixels=True)
         >>> topo.show(pixels=True, ax=ax[0])
         >>> topoC.show(ax=ax[1])
 
         Example if the data are plotted with real units
-        >>> topo = pySPM.SPM_image(...)
+        >>> topo = pyspm.SPM_image(...)
         >>> fig, ax = plt.subplots(1, 2, figsize=(10, 5))
         >>> topoC = topo.offset([[150, 0, 220, 255]], inline=False)
         >>> topo.show(ax=ax[0])
@@ -670,7 +670,7 @@ class SPM_image:
 
         Examples
         --------
-        >>> topo = pySPM.SPM_image(...)
+        >>> topo = pyspm.SPM_image(...)
         >>> fig, (ax, ax2) = plt.subplots(2, 3, figsize=(15, 10))
         >>> topo.show(ax=ax[0], cmap="gray", title='color map="gray"')
         >>> topo.show(ax=ax[1], sig=2, title="standard deviation=2")
@@ -829,14 +829,14 @@ class SPM_image:
     def real2px(self, x, y):
         """
         Transform a real (x,y) value in pixels
-        Units should be the same as the one plotted by pySPM.SPM_image.show
+        Units should be the same as the one plotted by pyspm.SPM_image.show
         """
         return self.real2pixels(x, y)
 
     def real2pixels(self, x, y, float=False):
         """
         Transform a real (x,y) value in pixels
-        Units should be the same as the one plotted by pySPM.SPM_image.show
+        Units should be the same as the one plotted by pyspm.SPM_image.show
         """
         W = self.size["real"]["x"]
         fact = int(np.floor(np.log(W) / np.log(10) / 3)) * 3
@@ -863,7 +863,7 @@ class SPM_image:
     def px2real(self, x, y):
         """
         Transform  a (x,y) value from pixels to real
-        Units are the same as the one plotted by pySPM.SPM_image.show
+        Units are the same as the one plotted by pyspm.SPM_image.show
         """
         W = self.size["real"]["x"]
         fact = int(np.floor(np.log(W) / np.log(10) / 3)) * 3
@@ -1192,7 +1192,7 @@ class SPM_image:
 
         Examples
         --------
-        >>> topo = pySPM.SPM_image(...)
+        >>> topo = pyspm.SPM_image(...)
         >>> fig, ax = plt.subplots(1, 2, figsize=(10, 5))
         >>> topo.plot_profile(
         ...     70,
@@ -1659,7 +1659,7 @@ class SPM_image:
 
         Returns
         -------
-        self if inplace, clipped SPM_image otherwises2 = pySPM.Nanoscan("%s/CyI5b_PCB_ns.xml"%(Path))
+        self if inplace, clipped SPM_image otherwises2 = pyspm.Nanoscan("%s/CyI5b_PCB_ns.xml"%(Path))
         """
         if "inplace" in kargs:
             inline = kargs["inplace"]
@@ -1796,7 +1796,7 @@ def imshow_sig(img, sig=1, ax=None, **kargs):
     ax : matplotlib axis
         matplotlib axis to use. If None, the current axis (plt.gca() will be used).
     **kargs : additional parameters
-        will be passed to the imshow function of matplotls2 = pySPM.Nanoscan("%s/CyI5b_PCB_ns.xml"%(Path))ib
+        will be passed to the imshow function of matplotls2 = pyspm.Nanoscan("%s/CyI5b_PCB_ns.xml"%(Path))ib
     """
     if ax is None:
         fig, ax = plt.subplots(1, 1)
@@ -2105,7 +2105,7 @@ def get_profile(
 ):
     """
     Get a profile from an input matrix.
-    Low-level function. Doc will come laters2 = pySPM.Nanoscan("%s/CyI5b_PCB_ns.xml"%(Path))
+    Low-level function. Doc will come laters2 = pyspm.Nanoscan("%s/CyI5b_PCB_ns.xml"%(Path))
     """
     d = np.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
     if N is None:

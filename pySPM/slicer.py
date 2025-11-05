@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file 'C:\Users\ols\Dropbox\Python\pySPM\slicer.ui'
+# Form implementation generated from reading ui file 'C:\Users\ols\Dropbox\Python\pyspm\slicer.ui'
 #
 # Created by: PyQt5 UI code generator 5.6
 #

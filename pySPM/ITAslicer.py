@@ -19,8 +19,8 @@ from PyQt5.QtWidgets import (
 from scipy import optimize as opt
 from slicer import Ui_slicer
 
-import pySPM
-from pySPM.utils import CDF
+import pyspm
+from pyspm.utils import CDF
 
 
 class SlicerApp(QWidget):
@@ -49,7 +49,7 @@ class SlicerApp(QWidget):
             self.level = np.load(self.path + ".level.npy")
         self.curs = [0, 0, 0]
         self.volume = None
-        self.ITA = pySPM.ITA(self.path)
+        self.ITA = pyspm.ITA(self.path)
         for i, x in enumerate(self.ITA.get_masses()):
             self.ui.peakList.setRowCount(i + 1)
             self.ui.peakList.setItem(i, 0, QTableWidgetItem(x["assign"]))

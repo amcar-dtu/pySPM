@@ -10,7 +10,7 @@ import struct
 
 import numpy as np
 
-import pySPM
+import pyspm
 
 
 class Bruker:
@@ -250,7 +250,7 @@ class Bruker:
                         "y": float(scan_size[1]) * yres / xres,
                         "unit": scan_size[2].decode(encoding),
                     }
-                    image = pySPM.SPM_image(
+                    image = pyspm.SPM_image(
                         channel=[channel, "Topography"][channel == "Height Sensor"],
                         BIN=data,
                         real=size,

@@ -1,7 +1,7 @@
-pySPM
+pyspm
 =====
 
 .. toctree::
    :maxdepth: 4
 
-   pySPM
+   pyspm

@@ -1,4 +1,4 @@
-A tutorial to read and handle AFM data with the pySPM library
+A tutorial to read and handle AFM data with the pyspm library
 =============================================================
 
 It exists various instrument manufacturer and we try to provide a large variety of file format. For the moment the library allows the user to read:
@@ -11,7 +11,7 @@ Bruker AFM
 ----------
 
 Loading the data::
-    >>> scan = pySPM.Bruker('../pySPM/data/CristC_pos1.002')
+    >>> scan = pyspm.Bruker('../pyspm/data/CristC_pos1.002')
     >>> scan.list_channels()
     Channels
     =======
@@ -41,7 +41,7 @@ Nanoscan xml
 ------------
 
 Loading the data::
-    >>> scan = pySPM.Nanoscan("../pySPM/data/CristA_0002.xml")
+    >>> scan = pyspm.Nanoscan("../pyspm/data/CristA_0002.xml")
     >>> scan.list_channels()
     forward
     =======
@@ -71,7 +71,7 @@ Loading the data::
 Nanonis SXM data
 ----------------
 Loading the data::
-    >>> scan = pySPM.SXM("../pySPM/data/test.sxm")
+    >>> scan = pyspm.SXM("../pyspm/data/test.sxm")
     >>> scan.list_channels()
     Channels
     ========

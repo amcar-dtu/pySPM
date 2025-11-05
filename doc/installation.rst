@@ -1,4 +1,4 @@
-An installation guide for pySPM
+An installation guide for pyspm
 ===============================
 
 Installing python
@@ -10,7 +10,7 @@ If you are a newcomer a quick solution to install python with all the required l
 
 Required libraries
 ------------------
-Before installing pySPM, few libraries should be installed first.
+Before installing pyspm, few libraries should be installed first.
 The easiest way of doing it is to use pip. Go in a terminal (on windows hit WIN+R, then type "cmd" without quotes).
 
 Then run:
@@ -23,7 +23,7 @@ pip install -U "numpy-1.15.1+mkl-cp37-cp37m-win_amd64.whl"
 
 in order to install the latest numpy package (please adapt the name with the verison you downloaded).
 
-Installing the pySPM library
+Installing the pyspm library
 ----------------------------
 
 You can find and download the library here: https://github.com/scholi/pySPM
