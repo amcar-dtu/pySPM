@@ -1,6 +1,6 @@
 [project]
 name = "pyspm"
-version = "0.6.3"
+version = "0.7.0"
 description = "Library to handle SPM and ToF-SIMS data"
 authors = [
     {name = "Olivier Scholder", email = "o.scholder@gmail.com"},
