@@ -4,7 +4,7 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 import pandas as pd
 
-from pySPM.tools.fpanel import Fpanel
+from pyspm.tools.fpanel import Fpanel
 
 
 def plotLog(filename, watch=False, **kargs):

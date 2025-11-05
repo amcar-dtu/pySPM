@@ -75,7 +75,7 @@ class Aligner:
     def getTf(self, verbose=False):
         """
         Get the Afdfine transform.
-        You can apply it to a pySPM Image (img) with: img.align(this.getTf())
+        You can apply it to a pyspm Image (img) with: img.align(this.getTf())
         """
         if verbose:
             print(f"Transpose: {self.trans[0]}, {self.trans[1]}")

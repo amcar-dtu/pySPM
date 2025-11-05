@@ -3,9 +3,9 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.998575.svg)](https://doi.org/10.5281/zenodo.998575)
 
-# pySPM
+# pyspm
 
-pySPM is a Python library in order to read, handle and plot Scanning Probe Microscopy 
+pyspm is a Python library in order to read, handle and plot Scanning Probe Microscopy 
 (SPM) images as well as ToF-SIMS data.
 
 Supported SPM file formats:
@@ -36,7 +36,7 @@ developer: https://github.com/scholi/pySPM/issues
 ### From PyPI
 
 ```bash
-pip install pySPM
+pip install pyspm
 ```
 
 ### From GitHub
@@ -70,7 +70,7 @@ a [short introduction to pySPM for ToF-SIMS data](https://nbviewer.jupyter.org/g
 If you use this library for your work, please think about citing it.
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.998575.svg)](https://doi.org/10.5281/zenodo.998575)
 
-Olivier Scholder. (2018, November 28). scholi/pySPM: pySPM v0.2.16 (Version v0.2.16).
+Olivier Scholder. (2018, November 28). scholi/pySPM: pyspm v0.2.16 (Version v0.2.16).
 Zenodo. http://doi.org/10.5281/zenodo.998575
 
 ## News
@@ -79,25 +79,25 @@ Zenodo. http://doi.org/10.5281/zenodo.998575
 
 From now on you can, not only view the ita files, but you can also write them by
 supplying the parameter
-_readable=False_ to _pySPM.ITA_ or _pySPM.ITM_. For the moment this is still a
+_readable=False_ to _pyspm.ITA_ or _pyspm.ITM_. For the moment this is still a
 non-user-friendly procedure, but you can
 edit each ITStr Block with the ```edit_block()``` function. Be careful, because if the
 new data has a different size
 than the old one, a new block is created, but the old one is also kept. This means that
 your ITA file size will grow.
 You can also add new channels and images with the more user-friendly
-function ```pySPM.ITA.add_new_images()```.
+function ```pyspm.ITA.add_new_images()```.
 :warning: It is highly advised to copy the ita file before making any change. You can
 use the following code to copy the
 ita in a temporary ita before making any change.
 
 ```python
 from shutil import copyfile
-import pySPM
+import pyspm
 
 filename = "scanfile.ita"
 copyfile(src=filename, dst="temp.ita")
-A = pySPM.ITA("temp.ita", readonly=False)
+A = pyspm.ITA("temp.ita", readonly=False)
 ```
 
 ### New tools

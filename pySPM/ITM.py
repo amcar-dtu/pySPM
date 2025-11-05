@@ -68,7 +68,7 @@ class ITM:
         debug : bool
             if True display some debug message.
         readonly : bool
-            The pySPM library can now EDIT ITM/ITA files. In case you want to avoid that, please set readonly=True.
+            The pyspm library can now EDIT ITM/ITA files. In case you want to avoid that, please set readonly=True.
             This might be also useful in case the file is open by another program which locks the file.
         precond : bool
             If True will run the preconditioner (adjust k0 so that H peak is correct and adjust scaling factor on the H peak)
@@ -360,7 +360,7 @@ class ITM:
 
     def image(self, I, channel="Unknown", zscale="Counts"):
         """
-        Create a pySPM.SPM.SPM_image for a given numpy array with the same real size information as the tof-sims data.
+        Create a pyspm.SPM.SPM_image for a given numpy array with the same real size information as the tof-sims data.
 
         Parameters
         ----------
@@ -373,12 +373,12 @@ class ITM:
 
         Returns
         -------
-        pySPM.SPM.SPM_image
+        pyspm.SPM.SPM_image
             A SPM_image created with the data of a given array.
 
         Example
         -------
-        >>> A = pySPM.ITA("myfile.ita")
+        >>> A = pyspm.ITA("myfile.ita")
         >>> Au, _ = A.getAddedImageByName(
         ...     "Au"
         ... )  # retrieve the gold channel (total counts)
@@ -562,7 +562,7 @@ class ITM:
             html = kargs["html"]
             del kargs["html"]
         if gui:
-            from pySPM.tools import values_display
+            from pyspm.tools import values_display
 
             Vals = self.get_values(pb, nest=True, **kargs)
             values_display.show_values(Vals)
@@ -620,7 +620,7 @@ class ITM:
         For an extractor of 2keV and L=2m, 1u = (time[s]*310620.843175[u**.5/s])**2 = [channel/sf]**2 => sf is about 32000 for k0 = 0
         Caution. If data are binned, the channel number should be multiplied by the binning factor in order to use the same sf and k0 factor!
 
-        For information the channel width is 50ps and can be retrieved by pySPM.ITM.get_value("Registration.TimeResolution")
+        For information the channel width is 50ps and can be retrieved by pyspm.ITM.get_value("Registration.TimeResolution")
         """
         if sf is None or k0 is None:
             sf0, k00 = self.sf, self.k0
@@ -842,7 +842,7 @@ class ITM:
         k0 : float or None
             sf and k0 are the mass calibration parameters. If None values saved with the file will be used.
         **kargs : supplementary arguments
-            Passed to pySPM.utils.showPeak
+            Passed to pyspm.utils.showPeak
         """
         polarity = "+"
         if (

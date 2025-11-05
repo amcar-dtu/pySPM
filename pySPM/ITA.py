@@ -36,9 +36,9 @@ class ITA(ITM):
 
         Examples
         --------
-        >>> import pySPM
+        >>> import pyspm
         >>> filename = "myfile.ita"
-        >>> A = pySPM.ITA(filename)
+        >>> A = pyspm.ITA(filename)
         """
         ITM.__init__(self, filename, *args, **kargs)
         try:
@@ -120,7 +120,7 @@ class ITA(ITM):
     def get_channels_by_name(self, name, strict=False):
         """
         Retrieve the channels for a given assignment name in the form of a list of dictionaries.
-        The output can be formatted in a human readable way with the pySPM.ITA.showChannels function (see examples).
+        The output can be formatted in a human readable way with the pyspm.ITA.showChannels function (see examples).
 
         Parameters
         ----------
@@ -148,7 +148,7 @@ class ITA(ITM):
 
         Examples
         --------
-        >>> A = pySPM.ITA("myfile.ita")
+        >>> A = pyspm.ITA("myfile.ita")
         >>> ch = A.getChannelsByName("C")
         >>> A.showChannels(ch)
                 CH- (), mass: 12.99 - 13.03
@@ -196,7 +196,7 @@ class ITA(ITM):
     @deprecated("showChannels")
     def show_channels(self, ch):
         """
-        Format a list of channels where each channel is represented by a dictionary (like the ones produced by pySPM.ITA.getChannelsByName) to a human readable output.
+        Format a list of channels where each channel is represented by a dictionary (like the ones produced by pyspm.ITA.getChannelsByName) to a human readable output.
 
         Parameters
         ----------
@@ -228,7 +228,7 @@ class ITA(ITM):
         mass : int, float
             The mass. If zero, the channel 0 will be returned and correspond to the Total count channel.
         full : bool
-            If True, not only the ID is retrieved but the whole dictionary similarly as with pySPM.ITA.getChannelsByName
+            If True, not only the ID is retrieved but the whole dictionary similarly as with pyspm.ITA.getChannelsByName
 
         Returns
         -------
@@ -262,10 +262,10 @@ class ITA(ITM):
 
         Returns
         -------
-        pySPM.SPM.SPM_image
+        pyspm.SPM.SPM_image
             The image of the sum of all the selected channels
         list of dictionaries
-            The list of all the channels selected. This list can be displayed in a human readable form by the pySPM.ITA.showChannels function
+            The list of all the channels selected. This list can be displayed in a human readable form by the pyspm.ITA.showChannels function
 
         """
         return self.get_sum_image_by_name(
@@ -323,15 +323,15 @@ class ITA(ITM):
         Parameters
         ----------
         names : string or list of strings
-            Similar as for pySPM.ITA.getChannelsByName
+            Similar as for pyspm.ITA.getChannelsByName
         scans : int, list of int or None
             The list of the scan number to be summed up. For the case of None (default) all the available scans are taken.
         strict : bool
-            Is the name selection strict? (see pySPM.ITA.getChannelsByName)
+            Is the name selection strict? (see pyspm.ITA.getChannelsByName)
         prog : bool
             If True a progressbar will be displayed to show the summing progress as this might be quite slow.
         raw : bool
-            If True a numpy array will be returned instead of a pySPM.SPM.SPM_image
+            If True a numpy array will be returned instead of a pyspm.SPM.SPM_image
         """
         if scans is None:
             scans = range(self.Nscan)
@@ -438,7 +438,7 @@ class ITA(ITM):
         flip : bool
             Flip the y-coordinates?
         **kargs : arguments
-            All supplementary arguments are passed to the pySPM.ITA.getSumImageByMass
+            All supplementary arguments are passed to the pyspm.ITA.getSumImageByMass
 
         Returns
         -------
@@ -473,21 +473,21 @@ class ITA(ITM):
         Parameters
         ----------
         names : string or list of strings
-            name of the channel (see pySPM.ITA.getChannelsByName)
+            name of the channel (see pyspm.ITA.getChannelsByName)
         strict : bool
-            If True the names are the exact names (see pySPM.ITA.getChannelsByName)
+            If True the names are the exact names (see pyspm.ITA.getChannelsByName)
         raw : bool
             If True a 2D numpy array will be returned
         **kargs: supplementary arguments
-            passed to pySPM.ITA.getAddedImage
+            passed to pyspm.ITA.getAddedImage
 
         Returns
         -------
-        pySPM.SPM.SPM_image
+        pyspm.SPM.SPM_image
             Image of the result
         list of dictionaries
             List of all selected peaks used to compute the image.
-            Note: Pass this list to pySPM.ITA.showChannels in order to print a human readable representation of it.
+            Note: Pass this list to pyspm.ITA.showChannels in order to print a human readable representation of it.
         """
         Z = np.zeros((self.sy, self.sx))
         channels = self.get_channels_by_name(names, strict)
@@ -526,7 +526,7 @@ class ITA(ITM):
     @alias("getShiftCorrectedImageByMass")
     def get_shift_corrected_image_by_mass(self, masses, **kargs):
         """
-        Shortcut function for pySPM.ITA.get_sum_image_by_mass using the saved shift corrections.
+        Shortcut function for pyspm.ITA.get_sum_image_by_mass using the saved shift corrections.
         """
         return self.get_sum_image_by_mass(
             masses, shifts=[(-x, -y) for x, y in self.get_saved_shift()], **kargs
@@ -535,8 +535,8 @@ class ITA(ITM):
     @alias("getSumImageByMass")
     def get_sum_image_by_mass(self, masses, scans=None, prog=False, raw=False, **kargs):
         """
-        Similar to pySPM.ITA.getSumImageByName but instead of the names, the mass or list of mass is provided
-        see pySPM.ITA.getSumImageByName for more details
+        Similar to pyspm.ITA.getSumImageByName but instead of the names, the mass or list of mass is provided
+        see pyspm.ITA.getSumImageByName for more details
         """
         if scans is None:
             scans = range(self.Nscan)
@@ -570,16 +570,16 @@ class ITA(ITM):
         raw : bool
             If True a 2D numpy array will be returned
         **kargs: supplementary arguments
-            passed to pySPM.ITA.getAddedImage
+            passed to pyspm.ITA.getAddedImage
 
         Returns
         -------
-        pySPM.SPM.SPM_image
+        pyspm.SPM.SPM_image
             Image of the result
         list of dictionaries
             Only returned if raw is True
             List of all selected peaks used to compute the image.
-            Note: Pass this list to pySPM.ITA.showChannels in order to print a human readable representation of it.
+            Note: Pass this list to pyspm.ITA.showChannels in order to print a human readable representation of it.
         """
         if isinstance(masses, int | float):
             masses = [masses]
@@ -636,7 +636,7 @@ class ITA(ITM):
     def get_added_image(self, channel, **kargs):
         """
         Retrieve the numpy 2D array of a given channel ID for the sum of all scan (precomputed by iontof, but not shift-corrected)
-        Note: It is preferable to use the pySPM.ITA.getAddedImageByMass or pySPM.ITA.getAddedImageByName
+        Note: It is preferable to use the pyspm.ITA.getAddedImageByMass or pyspm.ITA.getAddedImageByName
         """
         assert isinstance(channel, int)
         assert channel >= 0 and channel < self.Nimg
@@ -932,7 +932,7 @@ class ITA(ITM):
 class ITA_collection(Collection):
     """
     ITA_collection is a super class containing a collection of tof-sims images.
-    for details on Collection see pySPM.collection.Collection
+    for details on Collection see pyspm.collection.Collection
     """
 
     def __init__(
@@ -959,11 +959,11 @@ class ITA_collection(Collection):
         mass : bool
             if True the channel lists are in mass and not names
         strict : bool
-            Is the channel name strict? (see pySPM.ITA.getChannelsByName)
+            Is the channel name strict? (see pyspm.ITA.getChannelsByName)
 
         Returns
         -------
-        pySPM.ITA_collection class
+        pyspm.ITA_collection class
         """
         self.ita = ITA(filename)
         self.filename = filename
@@ -1038,9 +1038,9 @@ class ITA_collection(Collection):
 
         Example
         -------
-        >>> A = pySPM.ITA_collection("myfile.ita")
+        >>> A = pyspm.ITA_collection("myfile.ita")
         >>> A["Au-"]
-        <pySPM.SPM.SPM_image at 0x????????>
+        <pyspm.SPM.SPM_image at 0x????????>
         """
         if key not in self.channels:
             return None
@@ -1072,7 +1072,7 @@ class ITA_collection(Collection):
         num : int or None
             The number of PC component to display. If None display all PAs
         **kargs : additional parameters
-            passed to pySPM.PCA.showPCA
+            passed to pyspm.PCA.showPCA
 
         Returns
         -------
@@ -1095,8 +1095,8 @@ class ITA_collection(Collection):
 
         Note
         ----
-        The results can be used in combination with pySPM.PCA.hinton to create nice hinton plots
-        >>> col = pySPM.ITA_collection("myfile.ita")
+        The results can be used in combination with pyspm.PCA.hinton to create nice hinton plots
+        >>> col = pyspm.ITA_collection("myfile.ita")
         >>> L = col.loadings(3)
         >>> col.PCA.hincton(matrix=L)
         Display a hinton plot with num lines representing the strength of each loading. Blue means negative loadings and Red means positive ones.
@@ -1131,7 +1131,7 @@ class ITA_collection(Collection):
 
         Returns
         -------
-        pySPM.ITA_collection
+        pyspm.ITA_collection
             A new collection with corrected data
 
         """

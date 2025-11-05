@@ -15,7 +15,7 @@ from PyQt5.QtWidgets import (
     QWidget,
 )
 
-from pySPM import ITM
+from pyspm import ITM
 
 
 def DualPlot(ax, col1="C0", col2="C1"):

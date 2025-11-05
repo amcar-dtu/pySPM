@@ -18,11 +18,11 @@ Run the following and attach the result with your issue:
 
 ```python
 import sys
-import pySPM
+import pyspm
 
 print("Platform", sys.platform)
 print("Python", sys.version)
-print("pySPM", pySPM.__version__)
+print("pyspm", pyspm.__version__)
 ```
 
 **Additional context**

@@ -1,93 +1,93 @@
-pySPM.utils package
+pyspm.utils package
 ===================
 
 Submodules
 ----------
 
-pySPM.utils.constants module
+pyspm.utils.constants module
 ----------------------------
 
-.. automodule:: pySPM.utils.constants
+.. automodule:: pyspm.utils.constants
     :members:
     :undoc-members:
     :show-inheritance:
 
-pySPM.utils.elts module
+pyspm.utils.elts module
 -----------------------
 
-.. automodule:: pySPM.utils.elts
+.. automodule:: pyspm.utils.elts
     :members:
     :undoc-members:
     :show-inheritance:
 
-pySPM.utils.fit module
+pyspm.utils.fit module
 ----------------------
 
-.. automodule:: pySPM.utils.fit
+.. automodule:: pyspm.utils.fit
     :members:
     :undoc-members:
     :show-inheritance:
 
-pySPM.utils.haar module
+pyspm.utils.haar module
 -----------------------
 
-.. automodule:: pySPM.utils.haar
+.. automodule:: pyspm.utils.haar
     :members:
     :undoc-members:
     :show-inheritance:
 
-pySPM.utils.math module
+pyspm.utils.math module
 -----------------------
 
-.. automodule:: pySPM.utils.math
+.. automodule:: pyspm.utils.math
     :members:
     :undoc-members:
     :show-inheritance:
 
-pySPM.utils.misc module
+pyspm.utils.misc module
 -----------------------
 
-.. automodule:: pySPM.utils.misc
+.. automodule:: pyspm.utils.misc
     :members:
     :undoc-members:
     :show-inheritance:
 
-pySPM.utils.plot module
+pyspm.utils.plot module
 -----------------------
 
-.. automodule:: pySPM.utils.plot
+.. automodule:: pyspm.utils.plot
     :members:
     :undoc-members:
     :show-inheritance:
 
-pySPM.utils.restoration module
+pyspm.utils.restoration module
 ------------------------------
 
-.. automodule:: pySPM.utils.restoration
+.. automodule:: pyspm.utils.restoration
     :members:
     :undoc-members:
     :show-inheritance:
 
-pySPM.utils.save module
+pyspm.utils.save module
 -----------------------
 
-.. automodule:: pySPM.utils.save
+.. automodule:: pyspm.utils.save
     :members:
     :undoc-members:
     :show-inheritance:
 
-pySPM.utils.spectra module
+pyspm.utils.spectra module
 --------------------------
 
-.. automodule:: pySPM.utils.spectra
+.. automodule:: pyspm.utils.spectra
     :members:
     :undoc-members:
     :show-inheritance:
 
-pySPM.utils.units module
+pyspm.utils.units module
 ------------------------
 
-.. automodule:: pySPM.utils.units
+.. automodule:: pyspm.utils.units
     :members:
     :undoc-members:
     :show-inheritance:
@@ -96,7 +96,7 @@ pySPM.utils.units module
 Module contents
 ---------------
 
-.. automodule:: pySPM.utils
+.. automodule:: pyspm.utils
     :members:
     :undoc-members:
     :show-inheritance:

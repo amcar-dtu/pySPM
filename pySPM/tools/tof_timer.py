@@ -3,8 +3,8 @@ import sys
 from PyQt5.QtCore import QTimer
 from PyQt5.QtWidgets import QApplication, QMainWindow
 
-from pySPM.tools.timer_display import Ui_ToF_Timer
-from pySPM.tools.win32_helper import findWindow, getText
+from pyspm.tools.timer_display import Ui_ToF_Timer
+from pyspm.tools.win32_helper import findWindow, getText
 
 
 class GUI_Timer(QMainWindow):

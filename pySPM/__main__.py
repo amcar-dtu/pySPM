@@ -11,7 +11,7 @@ commands = {}
 def run_script(func):
     import importlib
 
-    mod = importlib.import_module("pySPM.tools." + func)
+    mod = importlib.import_module("pyspm.tools." + func)
     sys.argv = [sys.argv[0], *list(sys.argv[2:])]
     mod.main()
 
@@ -43,7 +43,7 @@ for c in cmds:
             commands[a] = (script, doc)
 
 if cmd is None or cmd in ["help", "--help", "-h", "?", "-?"]:
-    print("Give as argument the command that pySPM should run. Valid commands are:")
+    print("Give as argument the command that pyspm should run. Valid commands are:")
     for c in cmds:
         print(
             "{}: {} (aliases: {})".format(

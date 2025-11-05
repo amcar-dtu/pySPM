@@ -13,7 +13,7 @@ from matplotlib import cm
 from sklearn.decomposition import PCA as PCA1
 from sklearn.preprocessing import scale
 
-from pySPM import collection
+from pyspm import collection
 
 from .utils.misc import alias, aliased
 

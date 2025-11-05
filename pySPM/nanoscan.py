@@ -7,8 +7,8 @@ import xml.etree.ElementTree as ElementTree
 
 import numpy as np
 
-import pySPM.SPM
-from pySPM.SPM import SPM_image, funit
+import pyspm.SPM
+from pyspm.SPM import SPM_image, funit
 
 from .utils.misc import alias, aliased, deprecated
 
@@ -225,14 +225,14 @@ Scan Speed: {scanSpeed[value]}{scanSpeed[unit]}/line""".format(
 
     @staticmethod
     def show_dir_summary(path):
-        from pySPM.utils import htmlTable
+        from pyspm.utils import htmlTable
 
         res = [
             ["Filename", "pixel size", "real size", "scan_speed", "feedback", "P", "I"]
         ]
         for x in os.listdir(path):
             try:
-                A = pySPM.Nanoscan(path + x)
+                A = pyspm.Nanoscan(path + x)
                 res.append(
                     [
                         y.format(f=os.path.basename(A.filename), **A.__dict__)

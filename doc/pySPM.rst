@@ -1,4 +1,4 @@
-pySPM package
+pyspm package
 =============
 
 Subpackages
@@ -6,135 +6,135 @@ Subpackages
 
 .. toctree::
 
-    pySPM.utils
+    pyspm.utils
 
 Submodules
 ----------
 
-pySPM.Block module
+pyspm.Block module
 ------------------
 
-.. automodule:: pySPM.Block
+.. automodule:: pyspm.Block
     :members:
     :undoc-members:
     :show-inheritance:
 
-pySPM.Bruker module
+pyspm.Bruker module
 -------------------
 
-.. automodule:: pySPM.Bruker
+.. automodule:: pyspm.Bruker
     :members:
     :undoc-members:
     :show-inheritance:
 
-pySPM.GUI module
+pyspm.GUI module
 ----------------
 
-.. automodule:: pySPM.GUI
+.. automodule:: pyspm.GUI
     :members:
     :undoc-members:
     :show-inheritance:
 
-pySPM.ITA module
+pyspm.ITA module
 ----------------
 
-.. automodule:: pySPM.ITA
+.. automodule:: pyspm.ITA
     :members:
     :undoc-members:
     :show-inheritance:
 
-pySPM.ITAslicer module
+pyspm.ITAslicer module
 ----------------------
 
-.. automodule:: pySPM.ITAslicer
+.. automodule:: pyspm.ITAslicer
     :members:
     :undoc-members:
     :show-inheritance:
 
-pySPM.ITM module
+pyspm.ITM module
 ----------------
 
-.. automodule:: pySPM.ITM
+.. automodule:: pyspm.ITM
     :members:
     :undoc-members:
     :show-inheritance:
 
-pySPM.ITS module
+pyspm.ITS module
 ----------------
 
-.. automodule:: pySPM.ITS
+.. automodule:: pyspm.ITS
     :members:
     :undoc-members:
     :show-inheritance:
 
-pySPM.PCA module
+pyspm.PCA module
 ----------------
 
-.. automodule:: pySPM.PCA
+.. automodule:: pyspm.PCA
     :members:
     :undoc-members:
     :show-inheritance:
 
-pySPM.SPM module
+pyspm.SPM module
 ----------------
 
-.. automodule:: pySPM.SPM
+.. automodule:: pyspm.SPM
     :members:
     :undoc-members:
     :show-inheritance:
 
-pySPM.SXM module
+pyspm.SXM module
 ----------------
 
-.. automodule:: pySPM.SXM
+.. automodule:: pyspm.SXM
     :members:
     :undoc-members:
     :show-inheritance:
 
-pySPM.ToF module
+pyspm.ToF module
 ----------------
 
-.. automodule:: pySPM.ToF
+.. automodule:: pyspm.ToF
     :members:
     :undoc-members:
     :show-inheritance:
 
-pySPM.align module
+pyspm.align module
 ------------------
 
-.. automodule:: pySPM.align
+.. automodule:: pyspm.align
     :members:
     :undoc-members:
     :show-inheritance:
 
-pySPM.collection module
+pyspm.collection module
 -----------------------
 
-.. automodule:: pySPM.collection
+.. automodule:: pyspm.collection
     :members:
     :undoc-members:
     :show-inheritance:
 
-pySPM.mplwidget module
+pyspm.mplwidget module
 ----------------------
 
-.. automodule:: pySPM.mplwidget
+.. automodule:: pyspm.mplwidget
     :members:
     :undoc-members:
     :show-inheritance:
 
-pySPM.nanoscan module
+pyspm.nanoscan module
 ---------------------
 
-.. automodule:: pySPM.nanoscan
+.. automodule:: pyspm.nanoscan
     :members:
     :undoc-members:
     :show-inheritance:
 
-pySPM.slicer module
+pyspm.slicer module
 -------------------
 
-.. automodule:: pySPM.slicer
+.. automodule:: pyspm.slicer
     :members:
     :undoc-members:
     :show-inheritance:
@@ -143,7 +143,7 @@ pySPM.slicer module
 Module contents
 ---------------
 
-.. automodule:: pySPM
+.. automodule:: pyspm
     :members:
     :undoc-members:
     :show-inheritance:
